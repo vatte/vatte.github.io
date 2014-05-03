@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Polku"
+date:   2014-05-02 09:32:41
+categories: projects, installation, thesis
+---
+We are currently in Tokyo, Japan presenting our work "Polku" in the gorgeous [Spiral Gallery](http://www.spiral.co.jp) with Jairo Acosta. This is a part of the [Media Lab Helsinki](http://mlab.taik.fi) exhibition "Sounds From Finland", organized by Pipsa Asiala, Shinji Kanki and Antti Ikonen.
+
+Polku is a sound path consisting of six steps, surrounded by a forest of speakers. The sounds are bits of Finnish life, and by walking on the path the visitor can create their own soundscape. The result is different depending on whether visitors are alone on the path, or if they have company.
+
+The steps are hacked bathroom scales, with custom made PCB's (and of course LED's!) connected to an Arduino Mega and a main computer for running pure data. I've used [a Github repository](http://www.github.com/vatte/polku) for version management, but the code is not well documented (yet).
+
+<img src="{{ site.url }}/img/polku1.jpg" width=500 alt="people on polku"/>
