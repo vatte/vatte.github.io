@@ -1,52 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Valtteri Wikström</title>
-        <meta name="viewport" content="width=device-width">
+---
+layout: default
+title: Valtteri Wikström
+---
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
-
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">Valtteri Wikström</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
-
-          <div id="home">
+<div id="home">
   <h1>Blog Posts</h1>
   <ul class="posts">
-    
-      <li><span>02 May 2014</span> &raquo; <a href="/projects,/installation,/thesis/2014/05/02/polku.html">Polku</a></li>
-    
-      <li><span>02 May 2014</span> &raquo; <a href="/general/2014/05/02/hello-world.html">Hello World!</a></li>
-    
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
   </ul>
 </div>
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Valtteri Wikström<br />
-                Interaction designer<br />
-                vatte.wikstrom@gmail.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/vatte">github.com/vatte</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
-
-    </body>
-</html>
