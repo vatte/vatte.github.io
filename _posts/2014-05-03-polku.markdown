@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Polku"
-date:   2014-05-02 09:32:41
+date:   2014-05-03 10:45:01
 categories: projects, installation, thesis
 ---
 We are currently in Tokyo, Japan presenting our work "Polku" in the gorgeous [Spiral Gallery](http://www.spiral.co.jp) with Jairo Acosta. This is a part of the [Media Lab Helsinki](http://mlab.taik.fi) exhibition "Sounds From Finland", organized by Pipsa Asiala, Shinji Kanki and Antti Ikonen.
