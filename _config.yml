@@ -2,7 +2,8 @@ name: Valtteri Wikström
 markdown: redcarpet
 pygments: true
 
-gems: [jekyll-scholar]
+destination: ../_site
+
 
 scholar:
   style: apa
