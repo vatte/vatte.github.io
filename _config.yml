@@ -4,6 +4,37 @@ pygments: true
 
 destination: ../_site
 
+title:            From Töölö with Love
+description:      Stuff and things I've done.
+logo:             site-logo.png
+disqus_shortname: vatte
+search:           false
+# Your site's domain goes here. When working locally use localhost server leave blank
+# PS. If you set this wrong stylesheets and scripts won't load and most links will break.
+# PPS. If you leave it blank for local testing home links won't work, they'll be fine for live domains though.
+url:              http://vatte.github.io #http://192.168.0.17:4000
+
+owner:
+  name:     Valtteri Wikström
+  avatar:   avatar.png
+  email:    vatte.wikstrom@gmail.com
+  github:   vatte
+
+
+links:
+  - title: Home
+    url: /
+  - title: Projects
+    url: /projects/
+  - title: Research
+    url: /research/
+  - title: Teaching
+    url: /teaching/
+  - title: About
+    url: /about/
+
+
+
 
 scholar:
   style: apa

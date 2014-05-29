@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "New layout"
+date:   2014-05-29 20:29:00
+categories: general
+---
+
+I've updated the site layout and deployed a nifty responsive design Jekyll theme, the [So Simple Theme](https://github.com/mmistakes/so-simple-theme).
+
+From now on I'll try to categorize the site, so that these blog posts are reserved for news, articles and ongoing developments in projects, while the subpages are for static "portfolio-like" content.
