@@ -201,6 +201,7 @@ var responsiveNav = (function (window, document) {
 
         navOpen = true;
         opts.open();
+        this._calcHeight()
       } else {
         removeClass(nav, "opened");
         addClass(nav, "closed");
@@ -370,13 +371,14 @@ var responsiveNav = (function (window, document) {
         setAttributes(navToggle, {"aria-hidden": "false"});
 
         // If the navigation is hidden
+       
         if (nav.className.match(/(^|\s)closed(\s|$)/)) {
           setAttributes(nav, {"aria-hidden": "true"});
           nav.style.position = "absolute";
         }
 
         this._createStyles();
-        this._calcHeight();
+        this._calcHeight();/**/
       } else {
         setAttributes(navToggle, {"aria-hidden": "true"});
         setAttributes(nav, {"aria-hidden": "false"});

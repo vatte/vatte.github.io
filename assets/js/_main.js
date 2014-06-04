@@ -1,5 +1,4 @@
 /*! Plugin options and other jQuery stuff */
-
 // Responsive Nav
 var navigation = responsiveNav("#site-nav", { // Selector: The ID of the wrapper
   animate: true, // Boolean: Use CSS3 transitions, true or false
@@ -13,7 +12,7 @@ var navigation = responsiveNav("#site-nav", { // Selector: The ID of the wrapper
   open: function(){}, // Function: Open callback
   close: function(){} // Function: Close callback
 });
-
+/*
 $('html').click(function() {
   //Hide the menus if visible
   navigation.toggle();
@@ -21,7 +20,7 @@ $('html').click(function() {
 
 $('#site-nav').click(function(event){
     event.stopPropagation();
-});
+});*/
 
 // FitVids options
 $(function() {
