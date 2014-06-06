@@ -2,45 +2,145 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">From Töölö with Love</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://vatte.github.io/feed.xml" />
-<link rel="alternate" type="text/html" href="http://vatte.github.io/" />
-<updated>2014-06-04T19:56:11+03:00</updated>
-<id>http://vatte.github.io/</id>
+<link rel="self" type="application/atom+xml" href="http://192.168.0.17:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://192.168.0.17:4000/" />
+<updated>2014-06-06T16:20:02+03:00</updated>
+<id>http://192.168.0.17:4000/</id>
 <author>
   <name>Valtteri Wikström</name>
-  <uri>http://vatte.github.io/</uri>
+  <uri>http://192.168.0.17:4000/</uri>
   <email>vatte.wikstrom@gmail.com</email>
 </author>
 
 
 <entry>
+  <title type="html"><![CDATA[Littlebits Synth Kit + Arduino = MIDI]]></title>
+  <link rel="alternate" type="text/html" href="http://192.168.0.17:4000/projects/2014/06/05/korg-littlebits-midi.html"/>
+  <id>http://192.168.0.17:4000/projects/2014/06/05/korg-littlebits-midi</id>
+  <published>2014-06-05T17:13:00+03:00</published>
+  <updated>2014-06-05T17:13:00+03:00</updated>
+  <author>
+    <name>Valtteri Wikström</name>
+    <uri>http://192.168.0.17:4000</uri>
+    <email>vatte.wikstrom@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I&amp;#39;ve had the &lt;a href=&quot;http://littlebits.cc/kits/synth-kit/&quot;&gt;Korg/Littlebits Synth Kit&lt;/a&gt; lying around since last christmas, but it hasn&amp;#39;t seen as much use as it should, because it doesn&amp;#39;t really offer connectivity except for the output audio jack.&lt;/p&gt;
+
+&lt;p&gt;The goal of the project was to add MIDI connectivity to it, so that I could use it with a full sized keyboard and any other MIDI devices and software. Currently I&amp;#39;ve implemented note on, note off and pitch bend to control the oscillators with CV from an analog-digital converter(ADC) and trigger the envelope and sequencer with a digital signal.&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&quot;//player.vimeo.com/video/97521647&quot; width=&quot;500&quot; height=&quot;281&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href=&quot;http://vimeo.com/97521647&quot;&gt;Littlebits MIDI test&lt;/a&gt; from &lt;a href=&quot;http://vimeo.com/user2194725&quot;&gt;Vatte Wikstr&amp;ouml;m&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;I set out to buy an ADC (MCP4821) and a JST SH 3-wire connector to connect the Littlebits Wire module to an Arduino + MIDI shield. Getting hold of the connector in Helsinki proved impossible, so I had to flatten some jumper cable to fit in the tiny connector. (Meanwhile, I ordered the real connectors from &lt;a href=&quot;https://www.sparkfun.com/products/10358&quot;&gt;Sparkfun&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;After making an experiment by controlling the voltage and reading the frequency in Max, I concluded that the CV protocol of the oscillator is of the V/Octave variant, unlike Hz/V used in some of the other Korg synths, such as MS-20 (Mini). &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://192.168.0.17:4000/img/littlebits-cv.png&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;With the tune knob on the oscillator bit, the pitch range could be adjusted accurately so that each semitone is represented by 1000/12 or 83 and 1/3 milliVolts. My master keyboard begins at C2, or MIDI note 36, so I adjusted the pitch of the oscillator so that the first audible tone matched to that.&lt;/p&gt;
+
+&lt;p&gt;I found out that the trigger on the envelope bit was activated by a rising edge, or a signal that connects from ground to a higher voltage. Surprisingly, connecting the signal connector of the trigger inlet of the envelope bit to one of Arduino&amp;#39;s digital pins and writing LOW and HIGH to it did not work. I solved the issue by adding a 15KOhm pull-down resistor from that pin to ground.&lt;/p&gt;
+
+&lt;p&gt;Finally, the &lt;a href=&quot;http://github.com/vatte/littlebits-synth/&quot;&gt;Arduino code&lt;/a&gt; was simple enough, thanks to &lt;a href=&quot;http://www.kerrywong.com/2012/07/25/code-for-mcp4821-mcp4822/&quot;&gt;Kerry Wong&amp;#39;s MCP4821 example&lt;/a&gt; and the excellent &lt;a href=&quot;http://arduinomidilib.sourceforge.net/index.html&quot;&gt;Arduino MIDI library&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;MIDI.h&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;SPI.h&amp;gt;&lt;/span&gt;
+ 
+&lt;span class=&quot;cp&quot;&gt;#define PIN_CS 10&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define GAIN_1 0x1&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define GAIN_2 0x0&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define DAC_MAX 4095&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#define TRIG_PIN 3&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define SEMITONE 83.333 &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//millivolts per semitone&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define PITCH_BEND 833.33&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define ZERONOTE 33 &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//zero volts midi note&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define MAXNOTE 82&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;byte&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastNoteOn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastPitchBend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pinMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PIN_CS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;SPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;SPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setClockDivider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SPI_CLOCK_DIV2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;n&quot;&gt;MIDI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MIDI_CHANNEL_OMNI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;MIDI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setHandleNoteOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HandleNoteOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;MIDI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setHandlePitchBend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HandlePitchBend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;//assuming single channel, gain=2&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;byte&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lowByte&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;byte&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;highByte&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   
+  &lt;span class=&quot;n&quot;&gt;PORTB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xfb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;SPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transfer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;highByte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;SPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transfer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lowByte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;PORTB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;MIDI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;HandleNoteOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;byte&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;byte&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pitch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;byte&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;velocity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pitch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ZERONOTE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pitch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MAXNOTE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;velocity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;lastNoteOn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pitch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEMITONE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lastNoteOn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZERONOTE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PITCH_BEND&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lastPitchBend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;8192.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DAC_MAX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;setOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TRIG_PIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pitch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastNoteOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TRIG_PIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;HandlePitchBend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;byte&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;lastPitchBend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SEMITONE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lastNoteOn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZERONOTE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PITCH_BEND&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lastPitchBend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;8192.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DAC_MAX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;setOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://192.168.0.17:4000/projects/2014/06/05/korg-littlebits-midi.html&quot;&gt;Littlebits Synth Kit + Arduino = MIDI&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://192.168.0.17:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on June 05, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[New layout]]></title>
-  <link rel="alternate" type="text/html" href="http://vatte.github.io/general/2014/05/29/new-theme.html"/>
-  <id>http://vatte.github.io/general/2014/05/29/new-theme</id>
+  <link rel="alternate" type="text/html" href="http://192.168.0.17:4000/general/2014/05/29/new-theme.html"/>
+  <id>http://192.168.0.17:4000/general/2014/05/29/new-theme</id>
   <published>2014-05-29T23:29:00+03:00</published>
   <updated>2014-05-29T23:29:00+03:00</updated>
   <author>
     <name>Valtteri Wikström</name>
-    <uri>http://vatte.github.io</uri>
+    <uri>http://192.168.0.17:4000</uri>
     <email>vatte.wikstrom@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I&amp;#39;ve updated the site layout and deployed a nifty responsive design Jekyll theme, the &lt;a href=&quot;https://github.com/mmistakes/so-simple-theme&quot;&gt;So Simple Theme&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;From now on I&amp;#39;ll try to categorize the site, so that these blog posts are reserved for news, articles and ongoing developments in projects, while the subpages are for static &amp;quot;portfolio-like&amp;quot; content.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/general/2014/05/29/new-theme.html&quot;&gt;New layout&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on May 29, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://192.168.0.17:4000/general/2014/05/29/new-theme.html&quot;&gt;New layout&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://192.168.0.17:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on May 29, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Older projects]]></title>
-  <link rel="alternate" type="text/html" href="http://vatte.github.io/projects/2014/05/05/older-projects.html"/>
-  <id>http://vatte.github.io/projects/2014/05/05/older-projects</id>
+  <link rel="alternate" type="text/html" href="http://192.168.0.17:4000/projects/2014/05/05/older-projects.html"/>
+  <id>http://192.168.0.17:4000/projects/2014/05/05/older-projects</id>
   <published>2014-05-05T19:50:35+03:00</published>
   <updated>2014-05-05T19:50:35+03:00</updated>
   <author>
     <name>Valtteri Wikström</name>
-    <uri>http://vatte.github.io</uri>
+    <uri>http://192.168.0.17:4000</uri>
     <email>vatte.wikstrom@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I figured people visiting this site would like to know about other projects that I have been making. I hope to one day have enough time to properly document them better, but I&amp;#39;ll try to collect miscellaneous projects in this post.&lt;/p&gt;
@@ -49,7 +149,7 @@
 
 &lt;p&gt;Brainwise is a wearable electronics project we made together with costume designer Metti Nordin. It&amp;#39;s an EEG hat that displays the wearers brain activity on the surface, through light fibre and RGB LED&amp;#39;s. It&amp;#39;s actually already quite well documented &lt;a href=&quot;http://wearable.mlog.taik.fi/category/thinkingcap/&quot;&gt;on the course blog&lt;/a&gt;. To see the thinking cap in action, look at &lt;a href=&quot;http://vimeo.com/33650282&quot;&gt;the course project demo video&lt;/a&gt;, our part starts at 6:30. The work was also featured in the &lt;a href=&quot;http://issuu.com/aaltouniversity/docs/aum_03_web/10&quot;&gt;Aalto University Magazine&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://vatte.github.io/img/brainwise.jpg&quot; width=600 alt=&quot;Valtteri Wikström, Metti Nordin and producer Markku Nousiainen posing with brainwise.&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://192.168.0.17:4000/img/brainwise.jpg&quot; width=600 alt=&quot;Valtteri Wikström, Metti Nordin and producer Markku Nousiainen posing with brainwise.&quot;/&gt;&lt;/p&gt;
 
 &lt;h3&gt;Immediate Invisible&lt;/h3&gt;
 
@@ -59,19 +159,19 @@
 
 &lt;p&gt;I will keep adding other old projects when I manage to take pictures and document them, please come back!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/projects/2014/05/05/older-projects.html&quot;&gt;Older projects&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on May 05, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://192.168.0.17:4000/projects/2014/05/05/older-projects.html&quot;&gt;Older projects&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://192.168.0.17:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on May 05, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Polku]]></title>
-  <link rel="alternate" type="text/html" href="http://vatte.github.io/thesis/2014/05/03/polku.html"/>
-  <id>http://vatte.github.io/thesis/2014/05/03/polku</id>
+  <link rel="alternate" type="text/html" href="http://192.168.0.17:4000/thesis/2014/05/03/polku.html"/>
+  <id>http://192.168.0.17:4000/thesis/2014/05/03/polku</id>
   <published>2014-05-03T13:45:01+03:00</published>
   <updated>2014-05-03T13:45:01+03:00</updated>
   <author>
     <name>Valtteri Wikström</name>
-    <uri>http://vatte.github.io</uri>
+    <uri>http://192.168.0.17:4000</uri>
     <email>vatte.wikstrom@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;We are currently in Tokyo, Japan presenting our work &amp;quot;Polku&amp;quot; in the gorgeous &lt;a href=&quot;http://www.spiral.co.jp&quot;&gt;Spiral Gallery&lt;/a&gt; with Jairo Acosta. This is a part of the &lt;a href=&quot;http://mlab.taik.fi&quot;&gt;Media Lab Helsinki&lt;/a&gt; exhibition &amp;quot;Sounds From Finland&amp;quot;, organized by Pipsa Asiala, Shinji Kanki and Antti Ikonen.&lt;/p&gt;
@@ -80,26 +180,26 @@
 
 &lt;p&gt;The steps are hacked bathroom scales, with custom made PCB&amp;#39;s (and of course LED&amp;#39;s!) connected to an Arduino Mega and a main computer for running pure data. I&amp;#39;ve used &lt;a href=&quot;http://www.github.com/vatte/polku&quot;&gt;a Github repository&lt;/a&gt; for version management, but the code is not well documented (yet).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://vatte.github.io/img/polku1.jpg&quot; width=500 alt=&quot;people on polku&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://192.168.0.17:4000/img/polku1.jpg&quot; width=500 alt=&quot;people on polku&quot;/&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/thesis/2014/05/03/polku.html&quot;&gt;Polku&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on May 03, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://192.168.0.17:4000/thesis/2014/05/03/polku.html&quot;&gt;Polku&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://192.168.0.17:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on May 03, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hello World!]]></title>
-  <link rel="alternate" type="text/html" href="http://vatte.github.io/general/2014/05/02/hello-world.html"/>
-  <id>http://vatte.github.io/general/2014/05/02/hello-world</id>
+  <link rel="alternate" type="text/html" href="http://192.168.0.17:4000/general/2014/05/02/hello-world.html"/>
+  <id>http://192.168.0.17:4000/general/2014/05/02/hello-world</id>
   <published>2014-05-02T12:32:41+03:00</published>
   <updated>2014-05-02T12:32:41+03:00</updated>
   <author>
     <name>Valtteri Wikström</name>
-    <uri>http://vatte.github.io</uri>
+    <uri>http://192.168.0.17:4000</uri>
     <email>vatte.wikstrom@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I&amp;#39;m Valtteri Wikström, an interaction designer, hardware and software developer, researcher and occasional teacher and media artist. My main interests are currently physical and physiological interfaces for controlling sound and making music. I will add information about my projects and activities on this blog, trying to include code as well in github repositories.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/general/2014/05/02/hello-world.html&quot;&gt;Hello World!&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on May 02, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://192.168.0.17:4000/general/2014/05/02/hello-world.html&quot;&gt;Hello World!&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://192.168.0.17:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on May 02, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

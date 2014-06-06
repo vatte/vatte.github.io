@@ -1,62 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://vatte.github.io</loc>
+        <loc>http://192.168.0.17:4000</loc>
     </url>
     
     
     <url>
-        <loc>http://vatte.github.io/about/</loc>
+        <loc>http://192.168.0.17:4000/about/</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/articles/</loc>
+        <loc>http://192.168.0.17:4000/articles/</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/feed.xml</loc>
+        <loc>http://192.168.0.17:4000/feed.xml</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/index.html</loc>
+        <loc>http://192.168.0.17:4000/index.html</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/projects/</loc>
+        <loc>http://192.168.0.17:4000/projects/</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/research/</loc>
+        <loc>http://192.168.0.17:4000/research/</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/sitemap.xml</loc>
+        <loc>http://192.168.0.17:4000/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/tags/</loc>
+        <loc>http://192.168.0.17:4000/tags/</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/teaching/</loc>
+        <loc>http://192.168.0.17:4000/teaching/</loc>
     </url>
     
 
     
     <url>
-        <loc>http://vatte.github.io/general/2014/05/29/new-theme.html</loc>
+        <loc>http://192.168.0.17:4000/projects/2014/06/05/korg-littlebits-midi.html</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/projects/2014/05/05/older-projects.html</loc>
+        <loc>http://192.168.0.17:4000/general/2014/05/29/new-theme.html</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/thesis/2014/05/03/polku.html</loc>
+        <loc>http://192.168.0.17:4000/projects/2014/05/05/older-projects.html</loc>
     </url>
     
     <url>
-        <loc>http://vatte.github.io/general/2014/05/02/hello-world.html</loc>
+        <loc>http://192.168.0.17:4000/thesis/2014/05/03/polku.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://192.168.0.17:4000/general/2014/05/02/hello-world.html</loc>
     </url>
     
 </urlset>

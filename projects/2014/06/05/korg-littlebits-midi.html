@@ -1,0 +1,260 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Littlebits Synth Kit + Arduino = MIDI &#8211; From Töölö with Love</title>
+<meta name="description" content="Stuff and things I've done.">
+<meta name="keywords" content="">
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Littlebits Synth Kit + Arduino = MIDI">
+<meta property="og:description" content="Stuff and things I've done.">
+<meta property="og:url" content="http://192.168.0.17:4000/projects/2014/06/05/korg-littlebits-midi.html">
+<meta property="og:site_name" content="From Töölö with Love">
+
+
+
+
+
+<link rel="canonical" href="http://192.168.0.17:4000/projects/2014/06/05/korg-littlebits-midi.html">
+<link href="http://192.168.0.17:4000/feed.xml" type="application/atom+xml" rel="alternate" title="From Töölö with Love Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://192.168.0.17:4000/assets/css/main.min.css">
+<!-- Webfonts -->
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://192.168.0.17:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://192.168.0.17:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://192.168.0.17:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://192.168.0.17:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://192.168.0.17:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://192.168.0.17:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://192.168.0.17:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://192.168.0.17:4000/">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://192.168.0.17:4000/projects/">Projects</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://192.168.0.17:4000/research/">Research</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://192.168.0.17:4000/teaching/">Teaching</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://192.168.0.17:4000/about/">About</a>
+				 
+			</li>
+	        
+	        <li><a href="http://192.168.0.17:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+
+
+<header class="masthead">
+	<div class="wrap">
+        
+    		<a href="http://192.168.0.17:4000/" class="site-logo" rel="home" title="From Töölö with Love"><img src="http://192.168.0.17:4000/images/site-logo.png" width="200" alt="From Töölö with Love logo" class="animated fadeInUp"></a>
+        
+        <h1 class="site-title animated fadeIn"><a href="http://192.168.0.17:4000/">From Töölö with Love</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">Stuff and things I've done.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"></span>
+        
+          <h1 class="entry-title">Littlebits Synth Kit + Arduino = MIDI</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://192.168.0.17:4000/images/avatar.png" alt="Valtteri Wikström photo" class="author-photo">
+        <span class="author vcard">By <span class="fn"><a href="http://192.168.0.17:4000/about/" title="About Valtteri Wikström">Valtteri Wikström</a></span></span>
+        <span class="entry-date date published"><time datetime="2014-06-05T17:13:00+03:00"><i class="icon-calendar-empty"></i> June 05, 2014</time></span>
+        
+        
+        <span><a href="http://192.168.0.17:4000/projects/2014/06/05/korg-littlebits-midi.html" rel="bookmark" title="Littlebits Synth Kit + Arduino = MIDI"><i class="icon-link"></i> Permalink</a></span>
+        
+      </footer>
+      <div class="entry-content">
+        <p>I&#39;ve had the <a href="http://littlebits.cc/kits/synth-kit/">Korg/Littlebits Synth Kit</a> lying around since last christmas, but it hasn&#39;t seen as much use as it should, because it doesn&#39;t really offer connectivity except for the output audio jack.</p>
+
+<p>The goal of the project was to add MIDI connectivity to it, so that I could use it with a full sized keyboard and any other MIDI devices and software. Currently I&#39;ve implemented note on, note off and pitch bend to control the oscillators with CV from an analog-digital converter(ADC) and trigger the envelope and sequencer with a digital signal.</p>
+
+<p><iframe src="//player.vimeo.com/video/97521647" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/97521647">Littlebits MIDI test</a> from <a href="http://vimeo.com/user2194725">Vatte Wikstr&ouml;m</a> on <a href="https://vimeo.com">Vimeo</a>.</p></p>
+
+<p>I set out to buy an ADC (MCP4821) and a JST SH 3-wire connector to connect the Littlebits Wire module to an Arduino + MIDI shield. Getting hold of the connector in Helsinki proved impossible, so I had to flatten some jumper cable to fit in the tiny connector. (Meanwhile, I ordered the real connectors from <a href="https://www.sparkfun.com/products/10358">Sparkfun</a>.)</p>
+
+<p>After making an experiment by controlling the voltage and reading the frequency in Max, I concluded that the CV protocol of the oscillator is of the V/Octave variant, unlike Hz/V used in some of the other Korg synths, such as MS-20 (Mini). </p>
+
+<p><img src="http://192.168.0.17:4000/img/littlebits-cv.png"></p>
+
+<p>With the tune knob on the oscillator bit, the pitch range could be adjusted accurately so that each semitone is represented by 1000/12 or 83 and 1/3 milliVolts. My master keyboard begins at C2, or MIDI note 36, so I adjusted the pitch of the oscillator so that the first audible tone matched to that.</p>
+
+<p>I found out that the trigger on the envelope bit was activated by a rising edge, or a signal that connects from ground to a higher voltage. Surprisingly, connecting the signal connector of the trigger inlet of the envelope bit to one of Arduino&#39;s digital pins and writing LOW and HIGH to it did not work. I solved the issue by adding a 15KOhm pull-down resistor from that pin to ground.</p>
+
+<p>Finally, the <a href="http://github.com/vatte/littlebits-synth/">Arduino code</a> was simple enough, thanks to <a href="http://www.kerrywong.com/2012/07/25/code-for-mcp4821-mcp4822/">Kerry Wong&#39;s MCP4821 example</a> and the excellent <a href="http://arduinomidilib.sourceforge.net/index.html">Arduino MIDI library</a>.</p>
+
+<div class="highlight"><pre><span class="cp">#include &lt;MIDI.h&gt;</span>
+<span class="cp">#include &lt;SPI.h&gt;</span>
+ 
+<span class="cp">#define PIN_CS 10</span>
+<span class="cp">#define GAIN_1 0x1</span>
+<span class="cp">#define GAIN_2 0x0</span>
+<span class="cp">#define DAC_MAX 4095</span>
+
+<span class="cp">#define TRIG_PIN 3</span>
+<span class="cp">#define SEMITONE 83.333 </span><span class="c1">//millivolts per semitone</span>
+<span class="cp">#define PITCH_BEND 833.33</span>
+<span class="cp">#define ZERONOTE 33 </span><span class="c1">//zero volts midi note</span>
+<span class="cp">#define MAXNOTE 82</span>
+
+<span class="n">byte</span> <span class="n">lastNoteOn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">lastPitchBend</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">PIN_CS</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">SPI</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>  
+  <span class="n">SPI</span><span class="p">.</span><span class="n">setClockDivider</span><span class="p">(</span><span class="n">SPI_CLOCK_DIV2</span><span class="p">);</span>
+  
+  <span class="n">MIDI</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">MIDI_CHANNEL_OMNI</span><span class="p">);</span>
+  <span class="n">MIDI</span><span class="p">.</span><span class="n">setHandleNoteOn</span><span class="p">(</span><span class="n">HandleNoteOn</span><span class="p">);</span>
+  <span class="n">MIDI</span><span class="p">.</span><span class="n">setHandlePitchBend</span><span class="p">(</span><span class="n">HandlePitchBend</span><span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="c1">//assuming single channel, gain=2</span>
+<span class="kt">void</span> <span class="nf">setOutput</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">byte</span> <span class="n">lowByte</span> <span class="o">=</span> <span class="n">val</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">;</span>
+  <span class="n">byte</span> <span class="n">highByte</span> <span class="o">=</span> <span class="p">((</span><span class="n">val</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span> <span class="o">|</span> <span class="mh">0x10</span><span class="p">;</span>
+   
+  <span class="n">PORTB</span> <span class="o">&amp;=</span> <span class="mh">0xfb</span><span class="p">;</span>
+  <span class="n">SPI</span><span class="p">.</span><span class="n">transfer</span><span class="p">(</span><span class="n">highByte</span><span class="p">);</span>
+  <span class="n">SPI</span><span class="p">.</span><span class="n">transfer</span><span class="p">(</span><span class="n">lowByte</span><span class="p">);</span>
+  <span class="n">PORTB</span> <span class="o">|=</span> <span class="mh">0x4</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">MIDI</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">HandleNoteOn</span><span class="p">(</span><span class="n">byte</span> <span class="n">channel</span><span class="p">,</span> <span class="n">byte</span> <span class="n">pitch</span><span class="p">,</span> <span class="n">byte</span> <span class="n">velocity</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">pitch</span> <span class="o">&gt;=</span> <span class="n">ZERONOTE</span> <span class="o">&amp;&amp;</span> <span class="n">pitch</span> <span class="o">&lt;=</span> <span class="n">MAXNOTE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">velocity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">lastNoteOn</span> <span class="o">=</span> <span class="n">pitch</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">round</span><span class="p">(</span><span class="n">SEMITONE</span><span class="o">*</span><span class="p">(</span><span class="n">lastNoteOn</span><span class="o">-</span><span class="n">ZERONOTE</span><span class="p">)</span> <span class="o">+</span> <span class="n">PITCH_BEND</span><span class="o">*</span><span class="p">(</span><span class="n">lastPitchBend</span><span class="o">/</span><span class="mf">8192.0</span><span class="p">));</span>
+      <span class="n">freq</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">DAC_MAX</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+      <span class="n">setOutput</span><span class="p">(</span><span class="n">freq</span><span class="p">);</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">TRIG_PIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pitch</span> <span class="o">==</span> <span class="n">lastNoteOn</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">TRIG_PIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">HandlePitchBend</span><span class="p">(</span><span class="n">byte</span> <span class="n">channel</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bend</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">lastPitchBend</span> <span class="o">=</span> <span class="n">bend</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">round</span><span class="p">(</span><span class="n">SEMITONE</span><span class="o">*</span><span class="p">(</span><span class="n">lastNoteOn</span><span class="o">-</span><span class="n">ZERONOTE</span><span class="p">)</span> <span class="o">+</span> <span class="n">PITCH_BEND</span><span class="o">*</span><span class="p">(</span><span class="n">lastPitchBend</span><span class="o">/</span><span class="mf">8192.0</span><span class="p">));</span>
+  <span class="n">freq</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">DAC_MAX</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n">setOutput</span><span class="p">(</span><span class="n">freq</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://192.168.0.17:4000/general/2014/05/29/new-theme.html" class="btn" title="New layout">Previous article</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2014 Valtteri Wikström. </span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/vatte" title="Valtteri Wikström on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://192.168.0.17:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://192.168.0.17:4000/assets/js/scripts.min.js"></script>
+
+
+	        
+
+</body>
+</html>
