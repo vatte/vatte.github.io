@@ -2,26 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">From Töölö with Love</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://vatte.github.io/feed.xml" />
-<link rel="alternate" type="text/html" href="http://vatte.github.io/" />
-<updated>2014-06-06T16:24:44+03:00</updated>
-<id>http://vatte.github.io/</id>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000/" />
+<updated>2014-08-15T15:15:17+03:00</updated>
+<id>http://localhost:4000/</id>
 <author>
   <name>Valtteri Wikström</name>
-  <uri>http://vatte.github.io/</uri>
+  <uri>http://localhost:4000/</uri>
   <email>vatte.wikstrom@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Littlebits Synth Kit + Arduino = MIDI]]></title>
-  <link rel="alternate" type="text/html" href="http://vatte.github.io/projects/2014/06/05/korg-littlebits-midi.html"/>
-  <id>http://vatte.github.io/projects/2014/06/05/korg-littlebits-midi</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/projects/2014/06/05/korg-littlebits-midi.html"/>
+  <id>http://localhost:4000/projects/2014/06/05/korg-littlebits-midi</id>
   <published>2014-06-05T17:13:00+03:00</published>
   <updated>2014-06-05T17:13:00+03:00</updated>
   <author>
     <name>Valtteri Wikström</name>
-    <uri>http://vatte.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>vatte.wikstrom@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I&amp;#39;ve had the &lt;a href=&quot;http://littlebits.cc/kits/synth-kit/&quot;&gt;Korg/Littlebits Synth Kit&lt;/a&gt; lying around since last christmas, but it hasn&amp;#39;t seen as much use as it should, because it doesn&amp;#39;t really offer connectivity except for the output audio jack.&lt;/p&gt;
@@ -34,7 +34,7 @@
 
 &lt;p&gt;After making an experiment by controlling the voltage and reading the frequency in Max, I concluded that the CV protocol of the oscillator is of the V/Octave variant, unlike Hz/V used in some of the other Korg synths, such as MS-20 (Mini). &lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://vatte.github.io/img/littlebits-cv.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/img/littlebits-cv.png&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;With the tune knob on the oscillator bit, the pitch range could be adjusted accurately so that each semitone is represented by 1000/12 or 83 and 1/3 milliVolts. My master keyboard begins at C2, or MIDI note 36, so I adjusted the pitch of the oscillator so that the first audible tone matched to that.&lt;/p&gt;
 
@@ -109,38 +109,38 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/projects/2014/06/05/korg-littlebits-midi.html&quot;&gt;Littlebits Synth Kit + Arduino = MIDI&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on June 05, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/projects/2014/06/05/korg-littlebits-midi.html&quot;&gt;Littlebits Synth Kit + Arduino = MIDI&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://localhost:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on June 05, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[New layout]]></title>
-  <link rel="alternate" type="text/html" href="http://vatte.github.io/general/2014/05/29/new-theme.html"/>
-  <id>http://vatte.github.io/general/2014/05/29/new-theme</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/general/2014/05/29/new-theme.html"/>
+  <id>http://localhost:4000/general/2014/05/29/new-theme</id>
   <published>2014-05-29T23:29:00+03:00</published>
   <updated>2014-05-29T23:29:00+03:00</updated>
   <author>
     <name>Valtteri Wikström</name>
-    <uri>http://vatte.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>vatte.wikstrom@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I&amp;#39;ve updated the site layout and deployed a nifty responsive design Jekyll theme, the &lt;a href=&quot;https://github.com/mmistakes/so-simple-theme&quot;&gt;So Simple Theme&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;From now on I&amp;#39;ll try to categorize the site, so that these blog posts are reserved for news, articles and ongoing developments in projects, while the subpages are for static &amp;quot;portfolio-like&amp;quot; content.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/general/2014/05/29/new-theme.html&quot;&gt;New layout&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on May 29, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/general/2014/05/29/new-theme.html&quot;&gt;New layout&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://localhost:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on May 29, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Older projects]]></title>
-  <link rel="alternate" type="text/html" href="http://vatte.github.io/projects/2014/05/05/older-projects.html"/>
-  <id>http://vatte.github.io/projects/2014/05/05/older-projects</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/projects/2014/05/05/older-projects.html"/>
+  <id>http://localhost:4000/projects/2014/05/05/older-projects</id>
   <published>2014-05-05T19:50:35+03:00</published>
   <updated>2014-05-05T19:50:35+03:00</updated>
   <author>
     <name>Valtteri Wikström</name>
-    <uri>http://vatte.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>vatte.wikstrom@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I figured people visiting this site would like to know about other projects that I have been making. I hope to one day have enough time to properly document them better, but I&amp;#39;ll try to collect miscellaneous projects in this post.&lt;/p&gt;
@@ -149,7 +149,7 @@
 
 &lt;p&gt;Brainwise is a wearable electronics project we made together with costume designer Metti Nordin. It&amp;#39;s an EEG hat that displays the wearers brain activity on the surface, through light fibre and RGB LED&amp;#39;s. It&amp;#39;s actually already quite well documented &lt;a href=&quot;http://wearable.mlog.taik.fi/category/thinkingcap/&quot;&gt;on the course blog&lt;/a&gt;. To see the thinking cap in action, look at &lt;a href=&quot;http://vimeo.com/33650282&quot;&gt;the course project demo video&lt;/a&gt;, our part starts at 6:30. The work was also featured in the &lt;a href=&quot;http://issuu.com/aaltouniversity/docs/aum_03_web/10&quot;&gt;Aalto University Magazine&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://vatte.github.io/img/brainwise.jpg&quot; width=600 alt=&quot;Valtteri Wikström, Metti Nordin and producer Markku Nousiainen posing with brainwise.&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/img/brainwise.jpg&quot; width=600 alt=&quot;Valtteri Wikström, Metti Nordin and producer Markku Nousiainen posing with brainwise.&quot;/&gt;&lt;/p&gt;
 
 &lt;h3&gt;Immediate Invisible&lt;/h3&gt;
 
@@ -159,19 +159,19 @@
 
 &lt;p&gt;I will keep adding other old projects when I manage to take pictures and document them, please come back!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/projects/2014/05/05/older-projects.html&quot;&gt;Older projects&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on May 05, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/projects/2014/05/05/older-projects.html&quot;&gt;Older projects&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://localhost:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on May 05, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Polku]]></title>
-  <link rel="alternate" type="text/html" href="http://vatte.github.io/thesis/2014/05/03/polku.html"/>
-  <id>http://vatte.github.io/thesis/2014/05/03/polku</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/thesis/2014/05/03/polku.html"/>
+  <id>http://localhost:4000/thesis/2014/05/03/polku</id>
   <published>2014-05-03T13:45:01+03:00</published>
   <updated>2014-05-03T13:45:01+03:00</updated>
   <author>
     <name>Valtteri Wikström</name>
-    <uri>http://vatte.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>vatte.wikstrom@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;We are currently in Tokyo, Japan presenting our work &amp;quot;Polku&amp;quot; in the gorgeous &lt;a href=&quot;http://www.spiral.co.jp&quot;&gt;Spiral Gallery&lt;/a&gt; with Jairo Acosta. This is a part of the &lt;a href=&quot;http://mlab.taik.fi&quot;&gt;Media Lab Helsinki&lt;/a&gt; exhibition &amp;quot;Sounds From Finland&amp;quot;, organized by Pipsa Asiala, Shinji Kanki and Antti Ikonen.&lt;/p&gt;
@@ -180,26 +180,26 @@
 
 &lt;p&gt;The steps are hacked bathroom scales, with custom made PCB&amp;#39;s (and of course LED&amp;#39;s!) connected to an Arduino Mega and a main computer for running pure data. I&amp;#39;ve used &lt;a href=&quot;http://www.github.com/vatte/polku&quot;&gt;a Github repository&lt;/a&gt; for version management, but the code is not well documented (yet).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://vatte.github.io/img/polku1.jpg&quot; width=500 alt=&quot;people on polku&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/img/polku1.jpg&quot; width=500 alt=&quot;people on polku&quot;/&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/thesis/2014/05/03/polku.html&quot;&gt;Polku&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on May 03, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/thesis/2014/05/03/polku.html&quot;&gt;Polku&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://localhost:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on May 03, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hello World!]]></title>
-  <link rel="alternate" type="text/html" href="http://vatte.github.io/general/2014/05/02/hello-world.html"/>
-  <id>http://vatte.github.io/general/2014/05/02/hello-world</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/general/2014/05/02/hello-world.html"/>
+  <id>http://localhost:4000/general/2014/05/02/hello-world</id>
   <published>2014-05-02T12:32:41+03:00</published>
   <updated>2014-05-02T12:32:41+03:00</updated>
   <author>
     <name>Valtteri Wikström</name>
-    <uri>http://vatte.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>vatte.wikstrom@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I&amp;#39;m Valtteri Wikström, an interaction designer, hardware and software developer, researcher and occasional teacher and media artist. My main interests are currently physical and physiological interfaces for controlling sound and making music. I will add information about my projects and activities on this blog, trying to include code as well in github repositories.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/general/2014/05/02/hello-world.html&quot;&gt;Hello World!&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on May 02, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/general/2014/05/02/hello-world.html&quot;&gt;Hello World!&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://localhost:4000&quot;&gt;From Töölö with Love&lt;/a&gt; on May 02, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

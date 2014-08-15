@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>New layout &#8211; From Töölö with Love</title>
-<meta name="description" content="Stuff and things I've done.">
-<meta name="keywords" content="">
+<title>Minimal sequencer &#8211; From Töölö with Love</title>
+<meta name="description" content="is a project for creating a minimal hardware sequencer interface that offers the most relevant features.">
+
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="New layout">
-<meta property="og:description" content="Stuff and things I've done.">
-<meta property="og:url" content="http://localhost:4000/general/2014/05/29/new-theme.html">
+<meta property="og:title" content="Minimal sequencer">
+<meta property="og:description" content="is a project for creating a minimal hardware sequencer interface that offers the most relevant features.">
+<meta property="og:url" content="http://localhost:4000/projects/minimalsequencer/">
 <meta property="og:site_name" content="From Töölö with Love">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/general/2014/05/29/new-theme.html">
+<link rel="canonical" href="http://localhost:4000/projects/minimalsequencer/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="From Töölö with Love Feed">
 
 
@@ -58,7 +58,7 @@
 
 </head>
 
-<body id="post">
+<body id="page">
 
 <div class="navigation-wrapper">
 	<nav role="navigation" id="site-nav"><!-- class="animated drop"-->
@@ -118,40 +118,28 @@
 
 
 <div id="main" role="main">
-  <article class="hentry">
+  <article class="entry">
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags"></span>
-        
-          <h1 class="entry-title">New layout</h1>
-        
+        <h1 class="entry-title">Minimal sequencer</h1>
+        <center><h3>Fall 2013 - Current</h3></center>
       </header>
-      <footer class="entry-meta">
-        <img src="http://localhost:4000/images/avatar.png" alt="Valtteri Wikström photo" class="author-photo">
-        <span class="author vcard">By <span class="fn"><a href="http://localhost:4000/about/" title="About Valtteri Wikström">Valtteri Wikström</a></span></span>
-        <span class="entry-date date published"><time datetime="2014-05-29T23:29:00+03:00"><i class="icon-calendar-empty"></i> May 29, 2014</time></span>
-        
-        
-        <span><a href="http://localhost:4000/general/2014/05/29/new-theme.html" rel="bookmark" title="New layout"><i class="icon-link"></i> Permalink</a></span>
-        
-      </footer>
       <div class="entry-content">
-        <p>I&#39;ve updated the site layout and deployed a nifty responsive design Jekyll theme, the <a href="https://github.com/mmistakes/so-simple-theme">So Simple Theme</a>.</p>
+        <p>I have been working on a project to create a minimal interface for a natural user interaction with a physical sequencer to create a simple, economical, intuitive and compact device. In this project I try to avoid menu diving, and instead of an LCD display have LED indicators and direct mapping from control (such as potentiometer, button and rotary encoder) to parameter (e.g. pitch, step, duration). </p>
 
-<p>From now on I&#39;ll try to categorize the site, so that these blog posts are reserved for news, articles and ongoing developments in projects, while the subpages are for static &quot;portfolio-like&quot; content.</p>
+<p>I&#39;m currently conducting research about the affordances that a sequencer can have, and classifying their need for immediate and secondary availability to the user.</p>
 
-        
+<h2>Mr. Peach</h2>
+
+<p>Mr. Peach is the first prototype I have made. It consists of a rotary dial for step selection (12 steps), a slider for pitch selection, LED&#39;s for step and pitch indication and one potentiometer for speed/tempo selection. Under the hood there is an atmega 328 running the arduino bootloader, and a digital potentiometer for control voltage output to control analog synthesizers.</p>
+
+<iframe src="//player.vimeo.com/video/103507474" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+
+<p>The prototype works for programming pitch sequences, and is somewhat fun to play with, especially due to the lack of scale-quantization (which should also be possible to have as an option). The slider proved less than ideal for pitch selection, as it doesn&#39;t really represent the pitch on each step intuitively, even with the LED indicator - as the slider stays in the same position when the step is changed. In the next prototype I plan to move from potentiometers to either rotary encoders or motorized sliders, and add RGB LED&#39;s for more expressive (and beautiful) indicators.</p>
+
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
-    <nav class="pagination" role="navigation">
-      
-        <a href="http://localhost:4000/projects/2014/05/05/older-projects.html" class="btn" title="Older projects">Previous article</a>
-      
-      
-        <a href="http://localhost:4000/projects/2014/06/05/korg-littlebits-midi.html" class="btn" title="Littlebits Synth Kit + Arduino = MIDI">Next article</a>
-      
-    </nav><!-- /.pagination -->
   </article>
 </div><!-- /#main -->
 
@@ -177,7 +165,7 @@
 <script src="http://localhost:4000/assets/js/scripts.min.js"></script>
 
 
-	        
+          
 
 </body>
 </html>
