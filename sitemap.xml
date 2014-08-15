@@ -13,6 +13,7 @@ layout: nil
     </url>
     {% endfor %}
 
+
     {% for post in site.posts %}
     <url>
         <loc>{{ site.url }}{{ post.url }}</loc>

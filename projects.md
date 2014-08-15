@@ -5,13 +5,19 @@ permalink: /projects/
 modified: 2014-05-29
 ---
 
-###!!Under Construction!!
-
-This is a list of projects and prototypes that I have been working on.
+{% assign sorted_pages = (site.pages | sort: 'priority') %}
 
 #Musical interfaces
+{% for page in sorted_pages %}
+{% if page.category == "musicalinterface" %}
+* [{{ page.title }}]({{ site.url }}{{ page.url }}) {{page.description}}
+{% endif %}
+{% endfor %}
 
 
-
-#Interactive experiments
-
+#Wearable Electronics
+{% for page in sorted_pages %}
+{% if page.category == "wearable" %}
+* [{{ page.title }}]({{ site.url }}{{ page.url }}) {{page.description}}
+{% endif %}
+{% endfor %}

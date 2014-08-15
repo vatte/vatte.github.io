@@ -6,7 +6,7 @@ tags: [vatte]
 modified: 2014-05-29
 ---
 
-I'm Valtteri Wikström and this is my blog and portfolio. I consider myself an interaction designer with a focus on physical interfaces and prototyping.
+I'm Valtteri Wikström and this is my blog and portfolio. I consider myself an interaction designer and a developer with a focus on physical interfaces and prototyping.
 
 I'm currently a MA in New Media student at [Media Lab Helsinki](http://medialab.aalto.fi), where I also work as a research assistant in the [Sound and Physical Interaction](http://sopi.media.taik.fi) research group. I also have a MSc degree from Aalto University's School of Electrical Engineering.
 
