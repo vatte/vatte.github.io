@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Stronger Harder Faster Jester
-permalink: /projects/aerobicalorchestra/
+permalink: /projects/strongerharderfasterjester/
 timeline: Fall 2013
 category: musicalinterface
 description: are a set of pitch-following juggling balls.
