@@ -1,0 +1,320 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Digitaalinen signaalinkäsittely</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>Digitaalinen signaalinkäsittely</h1>
+
+<p>Luennoija: vesa norilo</p>
+
+<h1>1. Luento</h1>
+
+<h2>Kompleksiluvut</h2>
+
+<ul>
+<li>Vähennys: pisteiden välimatka</li>
+<li>Kerto: koordinaatiston skaalaus ja kääntäminen (yksikön vaihto)</li>
+</ul>
+
+
+<h3>Mikä on <em>i</em>:</h3>
+
+<p>\[
+(\alpha, x)^2 = (2\alpha, x^2) \\
+\sqrt{(0, 1)} = (0,1) \\
+\sqrt{(\alpha, 1)} = (\alpha/2, 1) \\
+\sqrt{-1} = \sqrt{(\pi, 1)} = (\pi/2,1) = i
+\]</p>
+
+<h3>Yhteenlasku:</h3>
+
+<p>\[
+(a + bi) + (c+di) = (a+c) + i(b+d)
+\]</p>
+
+<h3>Kertolasku:</h3>
+
+<p>\[
+(a+bi)*(c+di) = \\
+ac + adi + bci + bd(i)^2 = \\
+ac-bd + i(ad+bc)
+\]</p>
+
+<h3>Itseisarvo</h3>
+
+<p>\[
+| z | = \sqrt{Re({z})^2+Im({z}) ^2}
+\]</p>
+
+<h2>Luonnollinen exponentti $$$e^x$$$</h2>
+
+<p>\[D(e^x) = e^x,\]
+eli muutosnopeus on sama kuin funktion arvo
+\[D(e^{ax}) = ae^{ax}\]
+\[
+x = 0: \\
+e^{ix} = 1 \\
+ie^{ix} = i
+\]
+$$$e^{ix}$$$ derivaatta on aina $$$\pi/2$$$ käännettynä sen oma arvo, eli se piirtää yksikköympyrän.</p>
+
+<h3>Eulerin kaava</h3>
+
+<p>\[
+e^{i\theta} = \cos(\theta) + i\sin(\theta), \theta \in \mathbb{R} \\
+e^{-i\theta} = \cos(\theta) - i\sin(\theta),
+\]
+johtuen cosin symmetriasta ja sinin antisymmetriasta 0:n suhteen, eli $$$\cos(-\theta) = \cos(\theta)$$$ ja $$$\sin(-\theta) = -\sin(\theta) $$$</p>
+
+<p>\[
+\frac{e^{i\theta} + e^{-i\theta}}{2} = \cos(\theta) \\
+\frac{e^{i\theta} - e^{-i\theta}}{2i} = \sin(\theta)
+\]</p>
+
+<h3>Rengasmodulaatio</h3>
+
+<p>\[
+\cos(f_1t)*\cos(f_2t) = \\
+\frac{e^{if_1t}+e^{-if_1t}}{2} * \frac{e^{if_2t}+e^{-if_2t}}{2} = \\
+\frac{e^{if_1t+if_2t} + e^{if_1t-if_2t} + e^{if_2t-if_1t} + e^{-if_1t-if_2t}}{2} =
+\]</p>
+
+<p>eli kaksi vastalukua johtaa siihen että
+\[
+\frac{2\cos(f_1t+f_2t) + 2\cos(f_1t-f_2t)}{4} = \\
+\frac{\cos(f_1t+f_2t) + \cos(f_1t-f_2t)}{2}
+\]</p>
+
+<h1>2. luento</h1>
+
+<p>Vois lukee: Julius O Smith III - Introduction to Digital Filters</p>
+
+<h3>Komplek\sinen \sinusoidi</h3>
+
+<ul>
+<li>"Korkkiruuvi" $$$e^{ift}$$$</li>
+<li>Vaihe-amplitudi-vektori $$$A * e^{i\omega}$$$</li>
+<li><p>sinusoidi ja vaihe:
+\[
+A * e^{ift + i\omega} = \\
+A * e^{i\omega} * e^{ift}
+\]</p></li>
+<li><p>Interferenssi
+\[
+A * e^{i\alpha} e^{ift} + B * e^{i\beta} e^{ift} = \\
+(A * e^{i\alpha} + B * e^{i\beta}) e^{ift}
+\]</p></li>
+<li><p>Aikasiirtymä
+\[
+y(t) = e^{ift} \\
+y(t-1) = e^{if(t-1)} \\
+= e^{ift-if} \\
+= e^{ift} e^{-if} \\
+= y(t) e^{-if} \\
+y(t) = \frac{y(t-1)}{e^{-if}} \\
+= y(t-1) e^{if}
+\]</p></li>
+<li><p>Rekursiivinen \sinusoidi, eli resonanssi</p></li>
+</ul>
+
+
+<p>\[
+y(t) = y(t-1) * re^{if}, r \rightarrow envelope
+\]</p>
+
+<ul>
+<li>eli muuttuu $$$e^t$$$ kertoimella (pienenee jos $$$e &lt; 1$$$)</li>
+</ul>
+
+
+<h1>3. luento</h1>
+
+<h2>Summataan kaikki maailman kosinit</h2>
+
+<p>\[
+\cos(ft) \\
+f \in [0, \infty], ]0, \infty[ \\
+\int_0^\infty \cos(ft) df = \\
+\int_0^\infty \frac{e^{ift} + e^{-ift}}{2} df = \\
+\frac{1}{2} \int_0^\infty e^{ift} + e^{-ift} df = \\
+\frac{1}{2} ( \int_0^\infty e^{ift} df + \int_0^\infty e^{-ift} df)  = \\
+\frac{1}{2} ( \int_0^\infty e^{ift} df + \int_{-\infty}^0 e^{ift} df) = \\
+\]</p>
+
+<p>\[
+\frac{1}{2} ( \int_{-\infty}^\infty e^{ift} df = \\
+\]</p>
+
+<p>\[
+\frac{1}{2} /_{-\infty}^\infty \frac{1}{it} e^{ift} = \\
+\]</p>
+
+<h3>Taajuuteen $$$a$$$ asti "sinc funktio"</h3>
+
+<p>\[
+\frac{1}{2i} /_{-a}^a \frac{e^{ift}}{t} = \\
+\frac{e^{iat}-e^{-iat}}{2it} = \\
+\frac{\sin(at)}{t} \\
+\]</p>
+
+<p>\[
+\frac{\sin(at)}{t} = 0 \\
+t = \frac{n*F}{a}, n \ne 0, n \in \mathbb{Z} \\
+t = 0: \\
+\int_0^a cos(ft) df = \int_0^a 1 df = a \\
+\]</p>
+</body>
+</html>

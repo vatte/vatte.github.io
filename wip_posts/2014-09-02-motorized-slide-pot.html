@@ -1,0 +1,177 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Arduino and motorized slide pot &#8211; From Töölö with Love</title>
+<meta name="description" content="Stuff and things I've done.">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arduino and motorized slide pot">
+<meta property="og:description" content="Stuff and things I've done.">
+<meta property="og:url" content="http://vatte.github.io/wip_posts/2014-09-02-motorized-slide-pot.html">
+<meta property="og:site_name" content="From Töölö with Love">
+
+
+
+
+
+<link rel="canonical" href="http://vatte.github.io/wip_posts/2014-09-02-motorized-slide-pot.html">
+<link href="http://vatte.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="From Töölö with Love Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://vatte.github.io/assets/css/main.min.css">
+<!-- Webfonts -->
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://vatte.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://vatte.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://vatte.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://vatte.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://vatte.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://vatte.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://vatte.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav"><!-- class="animated drop"-->
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://vatte.github.io/">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://vatte.github.io/projects/">Projects</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://vatte.github.io/research/">Research</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://vatte.github.io/teaching/">Teaching</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://vatte.github.io/about/">About</a>
+				 
+			</li>
+	        
+	        <li><a href="http://vatte.github.io/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+
+
+<header class="masthead">
+	<div class="wrap">
+        
+    		<a href="http://vatte.github.io/" class="site-logo" rel="home" title="From Töölö with Love"><img src="http://vatte.github.io/images/site-logo.png" width="200" alt="From Töölö with Love logo"> <!--class="animated fadeInUp"--></a>
+        
+<!--
+        <h1 class="site-title"><!-- animated fadeIn"--<a href="http://vatte.github.io/">From Töölö with Love</a></h1>
+		<h2 class="site-description" itemprop="description"><!-- animated fadeIn"--Stuff and things I've done.</h2>
+-->
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"></span>
+        
+          <h1 class="entry-title">Arduino and motorized slide pot</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://vatte.github.io/images/avatar.png" alt="Valtteri Wikström photo" class="author-photo">
+        <span class="author vcard">By <span class="fn"><a href="http://vatte.github.io/about/" title="About Valtteri Wikström">Valtteri Wikström</a></span></span>
+        <span class="entry-date date published"><time datetime="2014-09-02T18:26:00+03:00"><i class="icon-calendar-empty"></i> September 02, 2014</time></span>
+        
+        
+        <span><a href="http://vatte.github.io/wip_posts/2014-09-02-motorized-slide-pot.html" rel="bookmark" title="Arduino and motorized slide pot"><i class="icon-link"></i> Permalink</a></span>
+        
+      </footer>
+      <div class="entry-content">
+        <p>I&#39;m working currently with a motorized slider from <a href="https://www.sparkfun.com/products/10976">Sparkfun</a> (actually our local distributor <a href="http://store.mansteri.com/">Månsteri</a>).</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2014 Valtteri Wikström. </span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/vatte" title="Valtteri Wikström on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://vatte.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://vatte.github.io/assets/js/scripts.min.js"></script>
+
+
+	        
+
+</body>
+</html>
