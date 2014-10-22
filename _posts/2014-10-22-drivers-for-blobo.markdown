@@ -12,7 +12,7 @@ This past weekend I needed to use the Blobo again for making an *Interactive Con
 
 ###Show me the drivers already
 
-Opening the serial port in OS X Mavericks was impossible as Bluetooth settings have been severely limited. Whatever I did, the result was "pairing rejected". I ran into the same problem in Ubuntu 14.04 when using the GUI, but thankfully Linux comes with the `rfcomm` command. I made a simple driver for the Blobo in Python, which you can [download from the Github repository](https://github.com/vatte/Blobo).
+Opening the Bluetooth serial port in OS X Mavericks was impossible as Bluetooth settings have been severely limited. Whatever I did, the result was "pairing rejected". I ran into the same problem in Ubuntu 14.04 when using the GUI, but thankfully Linux comes with the `rfcomm` command. I made a simple driver for Blobo in Python, which you can [download from this Github repository](https://github.com/vatte/Blobo).
 
 
 ###What's a Blobo anyway?
