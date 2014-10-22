@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://vatte.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://vatte.github.io/" />
-<updated>2014-10-23T01:41:58+03:00</updated>
+<updated>2014-10-23T01:46:47+03:00</updated>
 <id>http://vatte.github.io/</id>
 <author>
   <name>Valtteri Wikström</name>
@@ -30,7 +30,7 @@
 
 &lt;h3&gt;Show me the drivers already&lt;/h3&gt;
 
-&lt;p&gt;Opening the serial port in OS X Mavericks was impossible as Bluetooth settings have been severely limited. Whatever I did, the result was &amp;quot;pairing rejected&amp;quot;. I ran into the same problem in Ubuntu 14.04 when using the GUI, but thankfully Linux comes with the &lt;code&gt;rfcomm&lt;/code&gt; command. I made a simple driver for the Blobo in Python, which you can &lt;a href=&quot;https://github.com/vatte/Blobo&quot;&gt;download from the Github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Opening the Bluetooth serial port in OS X Mavericks was impossible as Bluetooth settings have been severely limited. Whatever I did, the result was &amp;quot;pairing rejected&amp;quot;. I ran into the same problem in Ubuntu 14.04 when using the GUI, but thankfully Linux comes with the &lt;code&gt;rfcomm&lt;/code&gt; command. I made a simple driver for Blobo in Python, which you can &lt;a href=&quot;https://github.com/vatte/Blobo&quot;&gt;download from this Github repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3&gt;What&amp;#39;s a Blobo anyway?&lt;/h3&gt;
 
