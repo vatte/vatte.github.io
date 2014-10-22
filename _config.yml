@@ -1,6 +1,7 @@
 name: Valtteri Wikström
 markdown: redcarpet
-pygments: true
+#pygments: true
+highlighter: pygments
 
 destination: ../_site
 
@@ -27,14 +28,13 @@ links:
   - title: Projects
     url: /projects/
   - title: Research
-    url: /research/
+    url: /research.html
   - title: Teaching
     url: /teaching/
   - title: About
     url: /about/
 
-
-
+exclude: [wip_pages, wip_posts]
 
 scholar:
   style: apa
