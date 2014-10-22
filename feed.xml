@@ -4,13 +4,42 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://vatte.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://vatte.github.io/" />
-<updated>2014-09-30T18:38:41+03:00</updated>
+<updated>2014-10-23T01:41:58+03:00</updated>
 <id>http://vatte.github.io/</id>
 <author>
   <name>Valtteri Wikström</name>
   <uri>http://vatte.github.io/</uri>
   <email>vatte.wikstrom@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Hacked drivers for Blobo]]></title>
+  <link rel="alternate" type="text/html" href="http://vatte.github.io/projects/2014/10/22/drivers-for-blobo.html"/>
+  <id>http://vatte.github.io/projects/2014/10/22/drivers-for-blobo</id>
+  <published>2014-10-22T23:35:00+03:00</published>
+  <updated>2014-10-22T23:35:00+03:00</updated>
+  <author>
+    <name>Valtteri Wikström</name>
+    <uri>http://vatte.github.io</uri>
+    <email>vatte.wikstrom@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;This past weekend I needed to use the Blobo again for making an &lt;em&gt;Interactive Conductors Baton&lt;/em&gt; as a part of our &lt;em&gt;FractConductor&lt;/em&gt; project at &lt;a href=&quot;http://sibhack.fi&quot;&gt;SibHack&lt;/a&gt;. The project is a virtual conducting experience combined with amazing fractal graphics. I will write more about it later, in the meantime have a look at this teaser we shot during the night at the &lt;em&gt;Finnish National Gallery, Ateneum&lt;/em&gt;:&lt;/p&gt;
+
+&lt;iframe src=&quot;//player.vimeo.com/video/109755593&quot; width=&quot;500&quot; height=&quot;281&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Show me the drivers already&lt;/h3&gt;
+
+&lt;p&gt;Opening the serial port in OS X Mavericks was impossible as Bluetooth settings have been severely limited. Whatever I did, the result was &amp;quot;pairing rejected&amp;quot;. I ran into the same problem in Ubuntu 14.04 when using the GUI, but thankfully Linux comes with the &lt;code&gt;rfcomm&lt;/code&gt; command. I made a simple driver for the Blobo in Python, which you can &lt;a href=&quot;https://github.com/vatte/Blobo&quot;&gt;download from the Github repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;What&amp;#39;s a Blobo anyway?&lt;/h3&gt;
+
+&lt;p&gt;Blobo is a Bluetooth game controller made by a Finnish company Ball-IT. It contains 9DOF IMU sensors (accelerometer, gyroscope and magnetometer) as well as a barometric pressure sensor for detecting squeezing. It has been discontinued, but you might find one if you look around. With a built-in Li-Ion battery and a Bluetooth connection it makes for a cool component for a variety of projects. Unfortunately Ball-IT hasn&amp;#39;t released the source code for the driver. Thanks to Jussi Virkkala, the serial data structure &lt;a href=&quot;http://www.neuroupdate.com/blobo/&quot;&gt;is publicly available&lt;/a&gt; making hacking easy.&lt;/p&gt;
+
+&lt;p&gt;I was using Blobo&amp;#39;s already in the &lt;a href=&quot;http://vatte.github.io/projects/strongerharderfasterjester/&quot;&gt;Stronger Harder Faster Jester&lt;/a&gt; pitch-following juggling balls. In OS X Lion, which I happened to be running at the time, creating a Bluetooth serial port for the Blobo was a piece of cake, and I just parsed the data inside Max MSP according to Jussi&amp;#39;s notes. The above python drivers should work in this case as well, without the extra step of binding the serial port with &lt;code&gt;rfcomm&lt;/code&gt;.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://vatte.github.io/projects/2014/10/22/drivers-for-blobo.html&quot;&gt;Hacked drivers for Blobo&lt;/a&gt; was originally published by Valtteri Wikström at &lt;a href=&quot;http://vatte.github.io&quot;&gt;From Töölö with Love&lt;/a&gt; on October 22, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>

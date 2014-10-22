@@ -6,10 +6,6 @@
     
     
     <url>
-        <loc>http://vatte.github.io/wip_posts/2014-09-02-motorized-slide-pot.html</loc>
-    </url>
-    
-    <url>
         <loc>http://vatte.github.io/about/</loc>
     </url>
     
@@ -46,10 +42,6 @@
     </url>
     
     <url>
-        <loc>http://vatte.github.io/research/</loc>
-    </url>
-    
-    <url>
         <loc>http://vatte.github.io/sitemap.xml</loc>
     </url>
     
@@ -67,6 +59,10 @@
     
 
 
+    
+    <url>
+        <loc>http://vatte.github.io/projects/2014/10/22/drivers-for-blobo.html</loc>
+    </url>
     
     <url>
         <loc>http://vatte.github.io/projects/2014/06/05/korg-littlebits-midi.html</loc>

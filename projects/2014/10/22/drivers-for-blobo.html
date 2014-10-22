@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Arduino and motorized slide pot &#8211; From Töölö with Love</title>
+<title>Hacked drivers for Blobo &#8211; From Töölö with Love</title>
 <meta name="description" content="Stuff and things I've done.">
-
+<meta name="keywords" content="">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arduino and motorized slide pot">
+<meta property="og:title" content="Hacked drivers for Blobo">
 <meta property="og:description" content="Stuff and things I've done.">
-<meta property="og:url" content="http://vatte.github.io/wip_posts/2014-09-02-motorized-slide-pot.html">
+<meta property="og:url" content="http://vatte.github.io/projects/2014/10/22/drivers-for-blobo.html">
 <meta property="og:site_name" content="From Töölö with Love">
 
 
 
 
 
-<link rel="canonical" href="http://vatte.github.io/wip_posts/2014-09-02-motorized-slide-pot.html">
+<link rel="canonical" href="http://vatte.github.io/projects/2014/10/22/drivers-for-blobo.html">
 <link href="http://vatte.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="From Töölö with Love Feed">
 
 
@@ -78,7 +78,7 @@
 	        
 			<li>
 				
-					<a href="http://vatte.github.io/research/">Research</a>
+					<a href="http://vatte.github.io/research.html">Research</a>
 				 
 			</li>
 	        
@@ -124,25 +124,39 @@
       <header class="entry-header">
         <span class="entry-tags"></span>
         
-          <h1 class="entry-title">Arduino and motorized slide pot</h1>
+          <h1 class="entry-title">Hacked drivers for Blobo</h1>
         
       </header>
       <footer class="entry-meta">
         <img src="http://vatte.github.io/images/avatar.png" alt="Valtteri Wikström photo" class="author-photo">
         <span class="author vcard">By <span class="fn"><a href="http://vatte.github.io/about/" title="About Valtteri Wikström">Valtteri Wikström</a></span></span>
-        <span class="entry-date date published"><time datetime="2014-09-02T18:26:00+03:00"><i class="icon-calendar-empty"></i> September 02, 2014</time></span>
+        <span class="entry-date date published"><time datetime="2014-10-22T23:35:00+03:00"><i class="icon-calendar-empty"></i> October 22, 2014</time></span>
         
         
-        <span><a href="http://vatte.github.io/wip_posts/2014-09-02-motorized-slide-pot.html" rel="bookmark" title="Arduino and motorized slide pot"><i class="icon-link"></i> Permalink</a></span>
+        <span><a href="http://vatte.github.io/projects/2014/10/22/drivers-for-blobo.html" rel="bookmark" title="Hacked drivers for Blobo"><i class="icon-link"></i> Permalink</a></span>
         
       </footer>
       <div class="entry-content">
-        <p>I&#39;m working currently with a motorized slider from <a href="https://www.sparkfun.com/products/10976">Sparkfun</a> (actually our local distributor <a href="http://store.mansteri.com/">Månsteri</a>).</p>
+        <p>This past weekend I needed to use the Blobo again for making an <em>Interactive Conductors Baton</em> as a part of our <em>FractConductor</em> project at <a href="http://sibhack.fi">SibHack</a>. The project is a virtual conducting experience combined with amazing fractal graphics. I will write more about it later, in the meantime have a look at this teaser we shot during the night at the <em>Finnish National Gallery, Ateneum</em>:</p>
+
+<iframe src="//player.vimeo.com/video/109755593" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<h3>Show me the drivers already</h3>
+
+<p>Opening the serial port in OS X Mavericks was impossible as Bluetooth settings have been severely limited. Whatever I did, the result was &quot;pairing rejected&quot;. I ran into the same problem in Ubuntu 14.04 when using the GUI, but thankfully Linux comes with the <code>rfcomm</code> command. I made a simple driver for the Blobo in Python, which you can <a href="https://github.com/vatte/Blobo">download from the Github repository</a>.</p>
+
+<h3>What&#39;s a Blobo anyway?</h3>
+
+<p>Blobo is a Bluetooth game controller made by a Finnish company Ball-IT. It contains 9DOF IMU sensors (accelerometer, gyroscope and magnetometer) as well as a barometric pressure sensor for detecting squeezing. It has been discontinued, but you might find one if you look around. With a built-in Li-Ion battery and a Bluetooth connection it makes for a cool component for a variety of projects. Unfortunately Ball-IT hasn&#39;t released the source code for the driver. Thanks to Jussi Virkkala, the serial data structure <a href="http://www.neuroupdate.com/blobo/">is publicly available</a> making hacking easy.</p>
+
+<p>I was using Blobo&#39;s already in the <a href="http://vatte.github.io/projects/strongerharderfasterjester/">Stronger Harder Faster Jester</a> pitch-following juggling balls. In OS X Lion, which I happened to be running at the time, creating a Bluetooth serial port for the Blobo was a piece of cake, and I just parsed the data inside Max MSP according to Jussi&#39;s notes. The above python drivers should work in this case as well, without the extra step of binding the serial port with <code>rfcomm</code>.</p>
 
         
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
+      
+        <a href="http://vatte.github.io/projects/2014/06/05/korg-littlebits-midi.html" class="btn" title="Littlebits Synth Kit + Arduino = MIDI">Previous article</a>
       
       
     </nav><!-- /.pagination -->
