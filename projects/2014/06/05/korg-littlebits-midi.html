@@ -139,11 +139,11 @@
       <div class="entry-content">
         <p>I&#39;ve had the <a href="http://littlebits.cc/kits/synth-kit/">Korg/Littlebits Synth Kit</a> lying around since last christmas, but it hasn&#39;t seen as much use as it should, because it doesn&#39;t really offer connectivity except for the output audio jack.</p>
 
-<p>The goal of the project was to add MIDI connectivity to it, so that I could use it with a full sized keyboard and any other MIDI devices and software. Currently I&#39;ve implemented note on, note off and pitch bend to control the oscillators with CV from an analog-digital converter(ADC) and trigger the envelope and sequencer with a digital signal.</p>
+<p>The goal of the project was to add MIDI connectivity to it, so that I could use it with a full sized keyboard and any other MIDI devices and software. Currently I&#39;ve implemented note on, note off and pitch bend to control the oscillators with CV from an digital-to-analog converter(DAC) and trigger the envelope and sequencer with a digital signal.</p>
 
 <iframe src="//player.vimeo.com/video/97521647" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
 
-<p>I set out to buy an ADC (MCP4821) and a JST SH 3-wire connector to connect the Littlebits Wire module to an Arduino + MIDI shield. Getting hold of the connector in Helsinki proved impossible, so I had to flatten some jumper cable to fit in the tiny connector. (Meanwhile, I ordered the real connectors from <a href="https://www.sparkfun.com/products/10358">Sparkfun</a>.)</p>
+<p>I set out to buy a DAC (MCP4821) and a JST SH 3-wire connector to connect the Littlebits Wire module to an Arduino + MIDI shield. Getting hold of the connector in Helsinki proved impossible, so I had to flatten some jumper cable to fit in the tiny connector. (Meanwhile, I ordered the real connectors from <a href="https://www.sparkfun.com/products/10358">Sparkfun</a>.)</p>
 
 <p>After making an experiment by controlling the voltage and reading the frequency in Max, I concluded that the CV protocol of the oscillator is of the V/Octave variant, unlike Hz/V used in some of the other Korg synths, such as MS-20 (Mini). </p>
 
@@ -238,7 +238,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2014 Valtteri Wikström. </span>
+    <span>&copy; 2015 Valtteri Wikström. </span>
 <div class="social-icons">
 	
 	
