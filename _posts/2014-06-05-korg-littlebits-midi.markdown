@@ -7,11 +7,11 @@ categories: projects
 
 I've had the [Korg/Littlebits Synth Kit](http://littlebits.cc/kits/synth-kit/) lying around since last christmas, but it hasn't seen as much use as it should, because it doesn't really offer connectivity except for the output audio jack.
 
-The goal of the project was to add MIDI connectivity to it, so that I could use it with a full sized keyboard and any other MIDI devices and software. Currently I've implemented note on, note off and pitch bend to control the oscillators with CV from an analog-digital converter(ADC) and trigger the envelope and sequencer with a digital signal.
+The goal of the project was to add MIDI connectivity to it, so that I could use it with a full sized keyboard and any other MIDI devices and software. Currently I've implemented note on, note off and pitch bend to control the oscillators with CV from an digital-to-analog converter(DAC) and trigger the envelope and sequencer with a digital signal.
 
 <iframe src="//player.vimeo.com/video/97521647" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
 
-I set out to buy an ADC (MCP4821) and a JST SH 3-wire connector to connect the Littlebits Wire module to an Arduino + MIDI shield. Getting hold of the connector in Helsinki proved impossible, so I had to flatten some jumper cable to fit in the tiny connector. (Meanwhile, I ordered the real connectors from [Sparkfun](https://www.sparkfun.com/products/10358).)
+I set out to buy a DAC (MCP4821) and a JST SH 3-wire connector to connect the Littlebits Wire module to an Arduino + MIDI shield. Getting hold of the connector in Helsinki proved impossible, so I had to flatten some jumper cable to fit in the tiny connector. (Meanwhile, I ordered the real connectors from [Sparkfun](https://www.sparkfun.com/products/10358).)
 
 After making an experiment by controlling the voltage and reading the frequency in Max, I concluded that the CV protocol of the oscillator is of the V/Octave variant, unlike Hz/V used in some of the other Korg synths, such as MS-20 (Mini). 
 
