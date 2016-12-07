@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif; }
+
+.hidden {
+  display: none; }
+
+.CategoricalEmotionModel ul, .DimensionalEmotionModel ul {
+  list-style-type: none; }
+
+.DimensionalEmotionModel .EmotionName {
+  width: 100px;
+  display: inline-block; }
+
+.Questionnaire .EmotionModel .ModelInfo {
+  display: none; }
+
+.DimensionalEmotionModel li {
+  position: relative;
+  margin-bottom: 1.5em; }
+
+input[type=range] {
+  width: 200px; }
+
+.bounds {
+  display: inline-block;
+  position: absolute;
+  width: 100px;
+  top: 15px;
+  white-space: nowrap;
+  font-size: 10px; }
+
+.bounds.higher {
+  text-align: right;
+  left: 208px; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm90aGVyLnNjc3MiLCJ0ZW1wbGF0ZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHdCQUF3QixFQUMzQjs7QUFFRDtFQUNFLGNBQWMsRUFDZjs7QUNORDtFQUNFLHNCQUFzQixFQUN2Qjs7QUFFRDtFQUNFLGFBQWE7RUFDYixzQkFBc0IsRUFDdkI7O0FBRUQ7RUFDRSxjQUFjLEVBQ2Y7O0FBRUQ7RUFDRSxtQkFBbUI7RUFDbkIscUJBQXFCLEVBQ3RCOztBQUVEO0VBQ0UsYUFBYSxFQUNkOztBQUVEO0VBQ0Usc0JBQXNCO0VBQ3RCLG1CQUFtQjtFQUNuQixhQUFhO0VBQ2IsVUFBVTtFQUNWLG9CQUFvQjtFQUNwQixnQkFBZ0IsRUFDakI7O0FBQ0Q7RUFDRSxrQkFBa0I7RUFDbEIsWUFBWSxFQUNiIiwiZmlsZSI6ImJ1bmRsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcbiAgICBmb250LWZhbWlseTogc2Fucy1zZXJpZjtcbn1cblxuLmhpZGRlbiB7XG4gIGRpc3BsYXk6IG5vbmU7XG59IiwiLkNhdGVnb3JpY2FsRW1vdGlvbk1vZGVsIHVsLCAuRGltZW5zaW9uYWxFbW90aW9uTW9kZWwgdWwge1xuICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XG59XG5cbi5EaW1lbnNpb25hbEVtb3Rpb25Nb2RlbCAuRW1vdGlvbk5hbWUge1xuICB3aWR0aDogMTAwcHg7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cblxuLlF1ZXN0aW9ubmFpcmUgLkVtb3Rpb25Nb2RlbCAuTW9kZWxJbmZvIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLkRpbWVuc2lvbmFsRW1vdGlvbk1vZGVsIGxpIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBtYXJnaW4tYm90dG9tOiAxLjVlbTtcbn1cblxuaW5wdXRbdHlwZT1yYW5nZV0ge1xuICB3aWR0aDogMjAwcHg7XG59XG5cbi5ib3VuZHMge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDEwMHB4O1xuICB0b3A6IDE1cHg7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIGZvbnQtc2l6ZTogMTBweDtcbn1cbi5ib3VuZHMuaGlnaGVyIHtcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gIGxlZnQ6IDIwOHB4O1xufVxuIl19 */

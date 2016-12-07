@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<emotionml version="1.0" xmlns="http://www.w3.org/2009/10/emotionml">
+    <vocabulary type="dimension" id="kysely">
+        <info>
+            <additional:title value="2DES+vitsikkyys+sarkasmi"/>
+            <additional:description value="**Valenssi** tarkoittaa sitä, kuinka negatiivinen tai positiivinen tunnesisältö mielestäsi on.
+            \n \n
+            **Kiihtyneisyys** kuvaa tunnetilan aiheuttamaa kiihtymystä. Esimerkiksi vihan ja riemun tunteet kuvataan usein korkean kiihtymyksen tiloiksi, mutta vihaan liittyy negatiivinen valenssi ja riemuun positiivinen.
+            
+            **Vitsikkyydellä** tarkoitetaan sitä, kuinka tosissaan viestin sisältö on – jos lähettäjä ei mielestäsi tarkoita viestin sisältöä oikeasti, on kyseessä vitsailu. Jos hän puolestaan tarkoittaa sisältöä oikeasti on hän tosissaan. Jos olet huvittunut viestistä, se voi liittyä siihen että lähettäjä vitsailee. Lähettäjä voi kuitenkin vitsailla siten, että et koe huvittuneisuutta.
+            
+            **Sarkasmilla** tarkoitetaan sitä, että viestissä sanotaan jotain totena mutta tarkoitetaankin vastakkaista. Esimerkiksi ”joo, tosi hyvä” saattaa tarkoittaa joko sitä että asia on todella lähettäjästä hyvä, tai jos sarkasmi on korkeaa tarkoittaa se sitä, että asia ei missään nimessä ole hyvä. "/>
+        </info>
+        <item name="Valenssi">
+            <info>
+                <additional:lower value="erittäin negatiivinen"/>
+                <additional:higher value="erittäin positiivinen"/>
+            </info>
+        </item>
+        <item name="Kiihtyneisyys">
+            <info>
+                <additional:lower value="erittäin matala"/>
+                <additional:higher value="erittäin korkea"/>
+            </info>
+        </item>
+        <item name="Vitsikkyys">
+            <info>
+                <additional:lower value="tosissaan"/>
+                <additional:higher value="vitsailee"/>
+            </info>
+        </item>
+        <item name="Sarkasmi">
+            <info>
+                <additional:lower value="erittäin vähän"/>
+                <additional:higher value="erittäin paljon"/>
+            </info>
+        </item>
+    </vocabulary>
+</emotionml>

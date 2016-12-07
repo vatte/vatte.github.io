@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>test iframe</title>
+  </head>
+  <script>
+    function hello(text) {
+      console.log(document.getElementById('questionnaire').src);
+    }
+  </script>
+  <body>
+      <h1>Hei hoo, hei hoo</h1>
+      <iframe id="questionnaire" onload="hello()" width="100%" height="300" src="http://localhost:8000/embed#2des+sincerity"></iframe>
+  </body>
+  <script type="text/javascript" src="js/bundle.js"></script>
+</html>
