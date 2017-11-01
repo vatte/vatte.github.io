@@ -1,0 +1,74 @@
+#N canvas 360 112 1298 756 10;
+#X declare -lib moocow;
+#X msg 91 78 close;
+#X obj 354 14 import moocow;
+#X obj 74 290 bytes2any;
+#X obj 74 229 sel 10 13;
+#X msg 112 112 ports;
+#X obj 167 189 print COMPORT;
+#X obj 74 260 zl group 100;
+#X floatatom 74 349 5 0 0 0 - - -;
+#X text 131 44 open serial port with index;
+#X text 447 14 library for bytes2any object;
+#X text 147 289 converts bytes back to ascii;
+#X obj 74 316 route S1;
+#X text 165 259 groups bytes for one line (arg max bytes);
+#X text 185 166 serial port object;
+#X text 160 112 list ports. can take a long time \, be patient;
+#X text 143 77 close serial port. frees it for other software;
+#X text 149 229 handles line endings (bytes 10 13);
+#X msg 74 45 open 7;
+#X obj 74 166 comport 7 115200;
+#X obj 386 337 t f b;
+#X obj 386 411 tabwrite graph;
+#X obj 384 586 list-minmax;
+#X obj 374 530 tabdump graph;
+#X floatatom 384 623 5 0 0 0 - - -;
+#X floatatom 447 621 5 0 0 0 - - -;
+#X obj 390 652 pack f f;
+#X obj 374 496 metro 50;
+#X obj 371 470 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array graph 500 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 0 500 0 600 400 1 0 0;
+#X restore 652 244 graph;
+#X obj 445 340 counter 0 500;
+#X msg 366 692 \; graph bounds 0 \$2 500 \$1;
+#X connect 0 0 18 0;
+#X connect 2 0 11 0;
+#X connect 3 0 6 0;
+#X connect 3 2 6 0;
+#X connect 4 0 18 0;
+#X connect 6 0 2 0;
+#X connect 11 0 7 0;
+#X connect 11 0 19 0;
+#X connect 17 0 18 0;
+#X connect 18 0 3 0;
+#X connect 18 1 5 0;
+#X connect 19 0 20 0;
+#X connect 19 1 29 0;
+#X connect 21 0 23 0;
+#X connect 21 1 24 0;
+#X connect 22 0 21 0;
+#X connect 23 0 25 0;
+#X connect 24 0 25 1;
+#X connect 25 0 30 0;
+#X connect 26 0 22 0;
+#X connect 27 0 26 0;
+#X connect 29 0 20 1;
