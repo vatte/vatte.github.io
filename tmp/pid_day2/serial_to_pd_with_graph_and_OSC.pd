@@ -1,0 +1,104 @@
+#N canvas 204 148 1609 832 10;
+#X declare -lib moocow;
+#X declare -lib mrpeach;
+#X msg 172 104 close;
+#X obj 435 40 import moocow;
+#X obj 155 316 bytes2any;
+#X obj 155 255 sel 10 13;
+#X msg 193 138 ports;
+#X obj 248 215 print COMPORT;
+#X obj 155 286 zl group 100;
+#X floatatom 186 378 5 0 0 0 - - -;
+#X text 212 70 open serial port with index;
+#X text 528 40 library for bytes2any object;
+#X text 228 315 converts bytes back to ascii;
+#X text 246 285 groups bytes for one line (arg max bytes);
+#X text 266 192 serial port object;
+#X text 241 138 list ports. can take a long time \, be patient;
+#X text 224 103 close serial port. frees it for other software;
+#X text 230 255 handles line endings (bytes 10 13);
+#X msg 155 71 open 7;
+#X obj 155 192 comport 7 115200;
+#X obj 467 363 t f b;
+#X obj 467 437 tabwrite graph;
+#X obj 447 619 list-minmax;
+#X obj 447 593 tabdump graph;
+#X floatatom 447 664 5 0 0 0 - - -;
+#X floatatom 510 662 5 0 0 0 - - -;
+#X obj 447 689 pack f f;
+#X obj 447 569 metro 50;
+#X obj 447 544 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array graph 500 float 3;
+#A 0 72 72 72 73 72 73 73 73 72 73 72 73 72 72 73 72 73 73 73 73 72
+72 73 72 72 72 72 72 72 72 72 72 72 72 72 72 73 73 72 73 73 73 72 73
+72 72 72 72 72 73 72 72 72 72 72 73 73 72 73 72 73 72 72 73 73 72 73
+72 72 72 72 72 72 72 72 73 72 73 73 72 73 73 73 73 72 73 72 72 73 72
+72 72 73 73 72 72 72 72 73 72 72 73 73 73 72 73 73 73 73 72 73 72 73
+73 72 72 72 72 72 72 72 72 73 72 72 72 72 72 72 72 72 72 72 72 73 73
+73 72 73 73 72 73 72 72 72 72 72 72 72 72 72 72 72 73 72 73 72 72 72
+72 73 72 73 72 73 72 72 72 73 72 73 73 72 72 72 73 72 73 72 73 72 72
+73 72 72 73 72 73 72 73 73 73 72 72 73 72 72 72 73 72 73 72 73 72 73
+72 72 72 72 73 72 72 72 72 72 73 72 73 72 73 73 72 73 72 72 73 72 72
+72 72 73 72 73 72 72 72 72 72 72 72 72 72 72 72 73 72 72 72 73 73 72
+72 73 72 73 72 72 72 73 72 73 72 72 72 72 72 72 72 72 72 72 72 72 73
+73 72 73 72 72 73 72 72 72 72 72 72 72 72 72 72 72 72 72 72 73 73 72
+73 72 72 73 72 72 72 72 73 72 72 72 73 72 72 72 72 72 72 72 72 72 72
+73 72 72 73 72 72 72 73 73 72 73 73 73 72 72 73 72 73 72 72 72 72 72
+72 72 72 72 72 72 72 72 72 73 72 73 73 72 72 72 72 72 72 73 73 72 73
+72 73 73 73 72 73 73 73 72 72 73 72 73 72 72 73 72 72 72 73 72 73 72
+72 72 72 72 72 73 72 73 72 72 72 72 72 72 73 72 72 72 72 73 73 72 73
+72 73 72 72 72 72 73 72 72 72 72 72 72 72 72 72 73 73 72 72 72 72 73
+72 72 72 72 72 72 72 72 72 72 72 72 72 72 72 73 73 72 73 73 72 73 72
+72 73 72 73 72 72 72 72 72 72 73 72 72 73 72 72 72 73 72 73 73 72 72
+73 72 72 72 72 72 72 73 72 72 73 72 72 73 72 72 73 72 72;
+#X coords 0 1023 500 0 600 400 1 0 0;
+#X restore 733 270 graph;
+#X obj 526 366 counter 0 500;
+#X msg 447 718 \; graph bounds 0 \$2 500 \$1;
+#X obj -61 553 import mrpeach;
+#X msg -18 379 connect localhost 6448;
+#X obj 65 527 packOSC;
+#X obj 65 560 udpsend;
+#X obj -18 350 loadbang;
+#X obj 155 342 route S1 S2;
+#X floatatom 229 378 5 0 0 0 - - -;
+#X obj 68 460 pack f f;
+#X msg 67 495 sendtyped /wek/inputs ff \$1 \$2;
+#X obj 510 641 + 1;
+#X obj 447 643 - 1;
+#X text 471 543 toggle autoscale;
+#X msg 621 715 \; graph bounds 0 0 500 1023;
+#X connect 0 0 17 0;
+#X connect 2 0 35 0;
+#X connect 3 0 6 0;
+#X connect 3 2 6 0;
+#X connect 4 0 17 0;
+#X connect 6 0 2 0;
+#X connect 16 0 17 0;
+#X connect 17 0 3 0;
+#X connect 17 1 5 0;
+#X connect 18 0 19 0;
+#X connect 18 1 28 0;
+#X connect 20 0 40 0;
+#X connect 20 1 39 0;
+#X connect 21 0 20 0;
+#X connect 22 0 24 0;
+#X connect 23 0 24 1;
+#X connect 24 0 29 0;
+#X connect 25 0 21 0;
+#X connect 26 0 25 0;
+#X connect 28 0 19 1;
+#X connect 31 0 33 0;
+#X connect 32 0 33 0;
+#X connect 34 0 31 0;
+#X connect 35 0 7 0;
+#X connect 35 0 18 0;
+#X connect 35 0 37 0;
+#X connect 35 1 36 0;
+#X connect 35 1 37 1;
+#X connect 37 0 38 0;
+#X connect 38 0 32 0;
+#X connect 39 0 23 0;
+#X connect 40 0 22 0;

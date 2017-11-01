@@ -1,0 +1,46 @@
+#N canvas 91 30 827 389 10;
+#X declare -lib mrpeach;
+#X obj 283 85 import mrpeach;
+#X obj 123 111 unpackOSC;
+#X obj 123 84 udpreceive 7000;
+#X floatatom 68 305 5 0 0 0 - - -;
+#X floatatom 108 305 5 0 0 0 - - -;
+#X floatatom 148 305 5 0 0 0 - - -;
+#X floatatom 204 306 5 0 0 0 - - -;
+#X floatatom 244 306 5 0 0 0 - - -;
+#X floatatom 284 306 5 0 0 0 - - -;
+#X floatatom 348 306 5 0 0 0 - - -;
+#X floatatom 388 306 5 0 0 0 - - -;
+#X floatatom 428 306 5 0 0 0 - - -;
+#X obj 123 139 routeOSC /skeleton;
+#X floatatom 497 309 5 0 0 0 - - -;
+#X floatatom 538 308 5 0 0 0 - - -;
+#X floatatom 583 308 5 0 0 0 - - -;
+#X obj 123 229 unpack f f f f f f f f f f f f f f f f f f f f f f f
+f f f f;
+#X text 97 334 head;
+#X text 235 335 torso;
+#X text 526 331 right hand;
+#X text 380 331 left hand;
+#X text 243 134 xyz coordinates of all the joints in the order: head
+\, neck \, torso \, left shoulder \, left elbow \, left hand \, right
+shoulder \, right elbow \, right hand \, left hip \, left knee \, left
+foot \, right hip \, right knee \, right foot. (right and left from
+camera's point of view);
+#X text 124 15 Downlaod and run NI mate in Omni-mode with Skeleton
+tracking enabled;
+#X connect 1 0 12 0;
+#X connect 2 0 1 0;
+#X connect 12 0 16 0;
+#X connect 16 0 3 0;
+#X connect 16 1 4 0;
+#X connect 16 2 5 0;
+#X connect 16 6 6 0;
+#X connect 16 7 7 0;
+#X connect 16 8 8 0;
+#X connect 16 15 9 0;
+#X connect 16 16 10 0;
+#X connect 16 17 11 0;
+#X connect 16 24 13 0;
+#X connect 16 25 14 0;
+#X connect 16 26 15 0;
