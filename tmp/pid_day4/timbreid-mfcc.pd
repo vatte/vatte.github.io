@@ -1,0 +1,23 @@
+#N canvas 283 28 450 300 10;
+#X obj 193 43 adc~;
+#X obj 257 123 print;
+#X obj 161 203 mrpeach/packOSC;
+#X obj 160 237 mrpeach/udpsend;
+#X msg 53 168 connect localhost 6448;
+#X obj 214 163 cyclone/prepend send /wek/inputs;
+#X obj 273 47 metro 50;
+#X obj 271 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 23 8 timbreID/timbreIDLib;
+#X obj 20 38 timbreID;
+#X obj 189 91 mfcc~ 2048 200;
+#X text 8 297 comment;
+#X text 291 91 18 outputs;
+#X connect 0 0 10 0;
+#X connect 0 1 10 0;
+#X connect 2 0 3 0;
+#X connect 4 0 3 0;
+#X connect 5 0 2 0;
+#X connect 6 0 10 0;
+#X connect 7 0 6 0;
+#X connect 10 0 5 0;
