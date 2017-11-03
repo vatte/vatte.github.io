@@ -1,0 +1,40 @@
+#N canvas 173 23 778 476 10;
+#X declare -lib mrpeach;
+#X msg 350 414 send /wekinator/control/stopDtwRecording;
+#X obj 350 353 bng 50 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 412 256 1;
+#X msg 448 256 2;
+#X msg 482 256 3;
+#X msg 519 258 4;
+#X msg 561 259 5;
+#X text 349 331 End gesture recording;
+#X msg 344 303 send /wekinator/control/startDtwRecording \$1;
+#X text 386 235 Begin gesture recording by integer index;
+#X obj 73 367 packOSC;
+#X obj 56 392 udpsend;
+#X msg 54 92 connect localhost 6448;
+#X obj 54 63 loadbang;
+#X obj 102 195 prepend send /wek/inputs;
+#X text 203 91 press this to connect to wekinator after it's started
+;
+#X text 110 62 sends bang when this patch is opened;
+#X text 121 367 create OSC packet;
+#X obj 473 51 import mrpeach;
+#X text 472 30 import objects for sending OSC messages;
+#X text 103 174 connect your data here \, either list (packed) or number
+;
+#X text 109 390 send over network;
+#X text 329 215 You can also control Wekinator with OSC;
+#X connect 0 0 10 0;
+#X connect 1 0 0 0;
+#X connect 2 0 8 0;
+#X connect 3 0 8 0;
+#X connect 4 0 8 0;
+#X connect 5 0 8 0;
+#X connect 6 0 8 0;
+#X connect 8 0 10 0;
+#X connect 10 0 11 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 0;
+#X connect 14 0 10 0;

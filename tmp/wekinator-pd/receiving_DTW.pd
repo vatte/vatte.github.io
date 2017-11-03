@@ -1,0 +1,27 @@
+#N canvas 115 185 517 292 10;
+#X declare -lib mrpeach;
+#X text 174 52 Receiving on port 12000;
+#X text 78 104 Add outputs based on how many you have set in wekinator
+;
+#X text 63 13 Wekinator DTW receiving example;
+#X obj 68 126 routeOSC /output_1 /output_2 /output_3 /output_4 /output_5
+;
+#X obj 329 55 import mrpeach;
+#X obj 68 52 udpreceive 12000;
+#X obj 68 74 unpackOSC;
+#X text 130 75 parses OSC message;
+#X msg 62 155 circle;
+#X msg 138 152 line;
+#X msg 205 153 triangle;
+#X obj 74 190 prepend set;
+#X msg 139 249 circle;
+#X text 90 249 IT'S A;
+#X connect 3 0 8 0;
+#X connect 3 1 9 0;
+#X connect 3 2 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 8 0 11 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;

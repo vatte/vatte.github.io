@@ -1,0 +1,34 @@
+#N canvas 0 22 867 373 10;
+#X declare -lib mrpeach;
+#X obj 117 265 packOSC;
+#X obj 66 303 udpsend;
+#X msg 66 122 connect localhost 6448;
+#X obj 66 93 loadbang;
+#X obj 449 77 import mrpeach;
+#X obj 117 226 prepend send /wek/inputs;
+#X text 215 121 press this to connect to wekinator after it's started
+;
+#X text 119 92 sends bang when this patch is opened;
+#X text 448 56 import objects for sending OSC messages;
+#X text 119 301 send to network;
+#X text 165 265 create OSC packet;
+#X msg 292 224 send /wek/inputs \$1 \$2 \$3;
+#X obj 292 199 pack f f f;
+#X msg 471 199 1;
+#X msg 504 199 2;
+#X msg 540 199 3;
+#X floatatom 117 201 5 0 0 0 - - -;
+#X text 115 168 different ways to send inputs to wekinator. check packOSC
+help file for details;
+#X msg 471 224 sendtyped /wek/inputs i \$1;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 5 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 11 0;
+#X connect 13 0 18 0;
+#X connect 14 0 18 0;
+#X connect 15 0 18 0;
+#X connect 16 0 5 0;
+#X connect 18 0 0 0;

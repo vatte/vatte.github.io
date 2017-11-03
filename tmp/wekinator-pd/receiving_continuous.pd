@@ -1,0 +1,19 @@
+#N canvas 0 22 450 300 10;
+#X declare -lib mrpeach;
+#X text 147 21 Receiving on port 12000;
+#X obj 329 23 import mrpeach;
+#X obj 41 21 udpreceive 12000;
+#X obj 41 43 unpackOSC;
+#X text 103 44 parses OSC message;
+#X obj 41 72 routeOSC /wek;
+#X obj 41 94 routeOSC /outputs;
+#X text 155 71 Route the OSC messages from Wekinator;
+#X obj 41 121 unpack f;
+#X text 99 123 add f's based on the amount of outputs in model (eg
+f f f);
+#X floatatom 42 157 5 0 0 0 - - -;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 8 0 10 0;
